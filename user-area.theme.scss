@@ -1,0 +1,105 @@
+/**
+ * @name User Area
+ * @author Luximus
+ * @version 1.0.0
+ * @description Re-designs the user area to be more visually appealing.
+ */
+
+// Styles
+.lxms_section {
+  padding: 8px !important;
+}
+
+.lxms_button_container {
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: space-evenly;
+  margin-top: 8px !important;
+}
+
+.lxms_button {
+  background: var(--bg-overlay-1, var(--background-primary)) !important;
+  border-radius: 4px !important;
+  flex: 1 !important;
+  width: unset !important;
+  padding: unset !important;
+
+  &:hover {
+    background-color: var(--background-secondary) !important;
+  }
+
+  button {
+    background-color: unset !important;
+  }
+
+  svg:not(.vc-spotify-button-icon),
+  div {
+    height: 20px !important;
+    width: 20px !important;
+  }
+}
+
+// Mapping
+$user_area: '[class^="panels"] > [class^="container"]';
+
+#{$user_area},
+#vc-spotify-player {
+  @extend .lxms_section;
+}
+
+#{$user_area} > [class*="buttons"],
+.vc-spotify-button-row,
+[class*="actionButtons"] {
+  @extend .lxms_button_container;
+}
+
+#{$user_area} > [class*="buttons"] button,
+.vc-spotify-button-row button,
+[class*="actionButtons"] > button,
+[class*="actionButtons"] > div {
+  @extend .lxms_button;
+}
+
+// User Area Styles
+#{$user_area} {
+  height: unset !important;
+  align-items: unset !important;
+  flex-direction: column !important;
+}
+
+#{$user_area} > [class^="avatarWrapper"] {
+  margin-right: unset !important;
+  margin-left: unset !important;
+  padding-left: 8px !important;
+}
+
+// Extra padding for spotify player buttons
+.vc-spotify-button-row {
+  margin-top: 16px !important;
+}
+
+// Spotify visual refresh
+#vc-spotify-titles div:last-child {
+    display: none;
+    font-size: 12px !important;
+}
+#vc-spotify-progress-bar div[class^="barFill_"] {
+    background-color: var(--interactive-active) !important;
+}
+#vc-spotify-progress-bar div[class^="sliderContainer_"] div[class^="bar_"] {
+    height: 2px !important;
+}
+#vc-spotify-player div[class^="grabber_"] {
+    position: relative;
+    top: 8px;
+    margin-left: -8px !important;
+}
+.vc-spotify-progress-time {
+    font-family: monospace;
+}
+*:has(> .vc-spotify-artist) {
+    font-size: 12px !important;
+}
+#vc-spotify-song-title {
+    font-size: 14px;
+}
