@@ -4,70 +4,62 @@
  * @version 1.0.0
  * @description Re-designs the user area to be more visually appealing.
  */
-.lxms_section, [class^="panels"] > [class^="container"],
+.lxms_section, [class^=panels] > [class^=container],
 #vc-spotify-player {
   padding: 8px !important;
 }
 
-.lxms_button_container, [class^="panels"] > [class^="container"] > [class*="buttons"],
+.lxms_button_container, [class^=panels] > [class^=container] > [class*=buttons],
 .vc-spotify-button-row,
-[class*="actionButtons"] {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
+[class*=actionButtons] {
   display: flex !important;
   gap: 8px !important;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
   margin-top: 8px !important;
 }
 
-.lxms_button, [class^="panels"] > [class^="container"] > [class*="buttons"] button,
+.lxms_button, [class^=panels] > [class^=container] > [class*=buttons] button,
 .vc-spotify-button-row button,
-[class*="actionButtons"] > button,
-[class*="actionButtons"] > div {
+[class*=actionButtons] > button,
+[class*=actionButtons] > div {
   background: var(--bg-overlay-1, var(--background-primary)) !important;
   border-radius: 4px !important;
-  -webkit-box-flex: 1 !important;
-      -ms-flex: 1 !important;
-          flex: 1 !important;
+  flex: 1 !important;
   width: unset !important;
   padding: unset !important;
 }
-
-.lxms_button:hover, [class^="panels"] > [class^="container"] > [class*="buttons"] button:hover,
+.lxms_button:hover, [class^=panels] > [class^=container] > [class*=buttons] button:hover,
 .vc-spotify-button-row button:hover,
-[class*="actionButtons"] > button:hover,
-[class*="actionButtons"] > div:hover {
+[class*=actionButtons] > button:hover,
+[class*=actionButtons] > div:hover {
   background-color: var(--background-secondary) !important;
 }
-
-.lxms_button button, [class^="panels"] > [class^="container"] > [class*="buttons"] button button, .vc-spotify-button-row button button, [class*="actionButtons"] > button button, [class*="actionButtons"] > div button {
+.lxms_button button, [class^=panels] > [class^=container] > [class*=buttons] button button,
+.vc-spotify-button-row button button,
+[class*=actionButtons] > button button,
+[class*=actionButtons] > div button {
   background-color: unset !important;
 }
-
-.lxms_button svg:not(.vc-spotify-button-icon), [class^="panels"] > [class^="container"] > [class*="buttons"] button svg:not(.vc-spotify-button-icon), .vc-spotify-button-row button svg:not(.vc-spotify-button-icon), [class*="actionButtons"] > button svg:not(.vc-spotify-button-icon), [class*="actionButtons"] > div svg:not(.vc-spotify-button-icon),
+.lxms_button svg:not(.vc-spotify-button-icon), [class^=panels] > [class^=container] > [class*=buttons] button svg:not(.vc-spotify-button-icon),
+.vc-spotify-button-row button svg:not(.vc-spotify-button-icon),
+[class*=actionButtons] > button svg:not(.vc-spotify-button-icon),
+[class*=actionButtons] > div svg:not(.vc-spotify-button-icon),
 .lxms_button div,
-[class^="panels"] > [class^="container"] > [class*="buttons"] button div,
+[class^=panels] > [class^=container] > [class*=buttons] button div,
 .vc-spotify-button-row button div,
-[class*="actionButtons"] > button div,
-[class*="actionButtons"] > div div {
+[class*=actionButtons] > button div,
+[class*=actionButtons] > div div {
   height: 20px !important;
   width: 20px !important;
 }
 
-[class^="panels"] > [class^="container"] {
+[class^=panels] > [class^=container] {
   height: unset !important;
-  -webkit-box-align: unset !important;
-      -ms-flex-align: unset !important;
-          align-items: unset !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-box-direction: normal !important;
-      -ms-flex-direction: column !important;
-          flex-direction: column !important;
+  align-items: unset !important;
+  flex-direction: column !important;
 }
 
-[class^="panels"] > [class^="container"] > [class^="avatarWrapper"] {
+[class^=panels] > [class^=container] > [class^=avatarWrapper] {
   margin-right: unset !important;
   margin-left: unset !important;
   padding-left: 8px !important;
@@ -82,15 +74,15 @@
   font-size: 12px !important;
 }
 
-#vc-spotify-progress-bar div[class^="barFill_"] {
+#vc-spotify-progress-bar div[class^=barFill_] {
   background-color: var(--interactive-active) !important;
 }
 
-#vc-spotify-progress-bar div[class^="sliderContainer_"] div[class^="bar_"] {
+#vc-spotify-progress-bar div[class^=sliderContainer_] div[class^=bar_] {
   height: 2px !important;
 }
 
-#vc-spotify-player div[class^="grabber_"] {
+#vc-spotify-player div[class^=grabber_] {
   position: relative;
   top: 8px;
   margin-left: -8px !important;
