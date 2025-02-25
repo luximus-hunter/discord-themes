@@ -1,0 +1,156 @@
+/**
+ * @name User Area
+ * @author Luximus
+ * @version 1.0.0
+ * @description Beautifies the user area.
+ */
+
+$discord-padding: 8px;
+
+.lxms_button {
+    flex: 1;
+
+    border-radius: calc(var(--radius-xs));
+    border: 1px solid var(--background-modifier-accent);
+    background-color: var(--background-tertiary);
+    transition: background-color 200ms, box-shadow 200ms;
+
+    &:hover {
+        background-color: var(--background-primary);
+        box-shadow: 0 0 $discord-padding #0001;
+        border-color: none;
+    }
+}
+
+[aria-label="User area"] {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    &>div:not([class*="wrapper_"]) {
+        padding: $discord-padding !important;
+    }
+
+    // Call controlls
+    [class*="wrapper_"] {
+        & [class*="container_"] {
+            border-bottom: 1px solid var(--background-modifier-accent);
+            padding: $discord-padding;
+
+            // Call info + noise suppression etc.
+            & [class*="connection_"] {
+                margin-bottom: $discord-padding;
+
+                & [class*="voiceButtonsContainer_"] {
+                    gap: $discord-padding;
+
+                    & button {
+                        @extend .lxms_button;
+                    }
+                }
+            }
+
+            // Call buttons
+            & [class*="actionButtons_"] {
+                gap: $discord-padding;
+
+                // All buttons
+                &>button {
+                    @extend .lxms_button;
+                }
+
+                // Disabled buttons
+                &>div {
+                    height: 32px;
+
+                    & button {
+                        @extend .lxms_button;
+                    }
+                }
+
+                // Disabled soundboard
+                & [class*="disabledButtonWrapper_"] {
+                    @extend .lxms_button;
+                    pointer-events: none;
+                    opacity: .5;
+                    overflow: hidden !important;
+                }
+            }
+        }
+    }
+
+    // Spotify player
+    #vc-spotify-player {
+        #vc-spotify-progress-bar {
+            padding-bottom: $discord-padding;
+
+            & [class*="bar_"] {
+                background-color: var(--background-tertiary);
+                height: 2px;
+            }
+
+            & [class*="barFill_"] {
+                background-color: var(--text-normal);
+            }
+
+        }
+
+        .vc-spotify-button-row {
+            gap: $discord-padding !important;
+
+            &>button {
+                @extend .lxms_button;
+            }
+        }
+    }
+
+    // Profile + mute etc. container 
+    &>div:last-child {
+        height: unset;
+
+        // Actual element with the buttons 
+        &>div {
+            box-sizing: border-box;
+            display: block;
+
+            // PFP + displayname container 
+            &>div:first-child {
+                @extend .lxms_button;
+
+                margin-bottom: $discord-padding;
+                padding: calc($discord-padding / 2);
+
+                // Displayname label
+                &>div:last-child {
+                    padding: 0;
+                    padding-left: $discord-padding;
+                }
+            }
+
+            // Mute etc. container
+            &>div:last-child {
+                gap: $discord-padding;
+
+                // Mute button is a div for some reason
+                &>div>button {
+                    background-color: inherit;
+                    border-radius: inherit;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                // All buttons
+                &>button,
+                &>div {
+                    @extend .lxms_button;
+                }
+            }
+        }
+    }
+}

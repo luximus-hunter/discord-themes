@@ -1,0 +1,90 @@
+/**
+ * @name User Area
+ * @author Luximus
+ * @version 1.0.0
+ * @description Beautifies the user area.
+ */
+.lxms_button, [aria-label="User area"] > div:last-child > div > div:last-child > button, [aria-label="User area"] > div:last-child > div > div:last-child > div, [aria-label="User area"] > div:last-child > div > div:first-child, [aria-label="User area"] #vc-spotify-player .vc-spotify-button-row > button, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] [class*=disabledButtonWrapper_], [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] > div button, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] > button, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=connection_] [class*=voiceButtonsContainer_] button {
+  flex: 1;
+  border-radius: calc(var(--radius-xs));
+  border: 1px solid var(--background-modifier-accent);
+  background-color: var(--background-tertiary);
+  transition: background-color 200ms, box-shadow 200ms;
+}
+.lxms_button:hover, [aria-label="User area"] > div:last-child > div > div:last-child > button:hover, [aria-label="User area"] > div:last-child > div > div:last-child > div:hover, [aria-label="User area"] > div:last-child > div > div:hover:first-child, [aria-label="User area"] #vc-spotify-player .vc-spotify-button-row > button:hover, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] [class*=disabledButtonWrapper_]:hover, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] > div button:hover, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] > button:hover, [aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=connection_] [class*=voiceButtonsContainer_] button:hover {
+  background-color: var(--background-primary);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.0666666667);
+  border-color: none;
+}
+
+[aria-label="User area"] {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+[aria-label="User area"] * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+[aria-label="User area"] > div:not([class*=wrapper_]) {
+  padding: 8px !important;
+}
+[aria-label="User area"] [class*=wrapper_] [class*=container_] {
+  border-bottom: 1px solid var(--background-modifier-accent);
+  padding: 8px;
+}
+[aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=connection_] {
+  margin-bottom: 8px;
+}
+[aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=connection_] [class*=voiceButtonsContainer_] {
+  gap: 8px;
+}
+[aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] {
+  gap: 8px;
+}
+[aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] > div {
+  height: 32px;
+}
+[aria-label="User area"] [class*=wrapper_] [class*=container_] [class*=actionButtons_] [class*=disabledButtonWrapper_] {
+  pointer-events: none;
+  opacity: 0.5;
+  overflow: hidden !important;
+}
+[aria-label="User area"] #vc-spotify-player #vc-spotify-progress-bar {
+  padding-bottom: 8px;
+}
+[aria-label="User area"] #vc-spotify-player #vc-spotify-progress-bar [class*=bar_] {
+  background-color: var(--background-tertiary);
+  height: 2px;
+}
+[aria-label="User area"] #vc-spotify-player #vc-spotify-progress-bar [class*=barFill_] {
+  background-color: var(--text-normal);
+}
+[aria-label="User area"] #vc-spotify-player .vc-spotify-button-row {
+  gap: 8px !important;
+}
+[aria-label="User area"] > div:last-child {
+  height: unset;
+}
+[aria-label="User area"] > div:last-child > div {
+  box-sizing: border-box;
+  display: block;
+}
+[aria-label="User area"] > div:last-child > div > div:first-child {
+  margin-bottom: 8px;
+  padding: 4px;
+}
+[aria-label="User area"] > div:last-child > div > div:first-child > div:last-child {
+  padding: 0;
+  padding-left: 8px;
+}
+[aria-label="User area"] > div:last-child > div > div:last-child {
+  gap: 8px;
+}
+[aria-label="User area"] > div:last-child > div > div:last-child > div > button {
+  background-color: inherit;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
