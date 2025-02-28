@@ -6,19 +6,53 @@
  */
 
 $discord-padding: 8px;
+$button-height: 32px;
 
 .lxms_button {
     flex: 1;
 
     border-radius: calc(var(--radius-xs));
     border: 1px solid var(--background-modifier-accent);
+    color: var(--interactive-normal);
     background-color: var(--background-tertiary);
     transition: background-color 200ms, box-shadow 200ms;
+    height: $button-height;
 
     &:hover {
         background-color: var(--background-primary);
         box-shadow: 0 0 $discord-padding #0001;
         border-color: none;
+    }
+
+    // Ensure that the icons in the button always have the correct color
+    & [class*="icon_"] svg,
+    & [class*="lottieIcon_"] svg {
+        fill: currentColor !important;
+        --__lottieIconColor: currentColor !important;
+    }
+
+    // Button states
+    // Active buttons (webcam, streaming, activity, soundboard)
+    &[class*="buttonActive_"] {
+        background-color: var(--status-online);
+        color: var(--white-500);
+
+        &:hover {
+            background-color: var(--green-500);
+        }
+    }
+
+    // Stop buttons (hang up call, stop streaming, mute, deafen)
+    &[aria-label="Stop Streaming"],
+    &[aria-label="Disconnect"],
+    & [aria-label="Mute"][aria-checked*="true"],
+    &[aria-label="Deafen"][aria-checked*="true"] {
+        background-color: var(--status-danger-background);
+        color: var(--status-danger-text);
+
+        &:hover {
+            background-color: var(--red-500);
+        }
     }
 }
 
@@ -33,8 +67,28 @@ $discord-padding: 8px;
         margin: 0;
     }
 
+    // Don't apply padding to wrapper_, but to its child. This element is always rendered
     &>div:not([class*="wrapper_"]) {
         padding: $discord-padding !important;
+    }
+
+    // Screenshare controls
+    [class*="activityPanel_"] [class*="body"] {
+        gap: $discord-padding;
+
+        [class*="gameWrapper_"] {
+            gap: $discord-padding;
+
+        }
+
+        [class*="actions_"] [class*="panelButtonContainer_"] {
+            display: flex;
+            gap: $discord-padding;
+
+            &>button {
+                @extend .lxms_button;
+            }
+        }
     }
 
     // Call controlls
@@ -61,17 +115,13 @@ $discord-padding: 8px;
                 gap: $discord-padding;
 
                 // All buttons
-                &>button {
+                & button {
                     @extend .lxms_button;
                 }
 
                 // Disabled buttons
                 &>div {
-                    height: 32px;
-
-                    & button {
-                        @extend .lxms_button;
-                    }
+                    height: $button-height;
                 }
 
                 // Disabled soundboard
@@ -113,44 +163,43 @@ $discord-padding: 8px;
     // Profile + mute etc. container 
     &>div:last-child {
         height: unset;
+        box-sizing: border-box;
+        display: block;
 
-        // Actual element with the buttons 
-        &>div {
-            box-sizing: border-box;
-            display: block;
+        // PFP + displayname container 
+        &>div:first-child {
+            @extend .lxms_button;
+            height: unset;
 
-            // PFP + displayname container 
-            &>div:first-child {
-                @extend .lxms_button;
+            margin-bottom: $discord-padding;
+            padding: calc($discord-padding / 2);
 
-                margin-bottom: $discord-padding;
-                padding: calc($discord-padding / 2);
-
-                // Displayname label
-                &>div:last-child {
-                    padding: 0;
-                    padding-left: $discord-padding;
-                }
-            }
-
-            // Mute etc. container
+            // Displayname label
             &>div:last-child {
-                gap: $discord-padding;
-
-                // Mute button is a div for some reason
-                &>div>button {
-                    background-color: inherit;
-                    border-radius: inherit;
-                    width: 100%;
-                    height: 100%;
-                }
-
-                // All buttons
-                &>button,
-                &>div {
-                    @extend .lxms_button;
-                }
+                padding: 0;
+                padding-left: $discord-padding;
             }
         }
+
+        // Mute etc. container
+        &>div:last-child {
+            gap: $discord-padding;
+
+            // Mute button is a div for some reason
+            &>div>button {
+                background-color: inherit;
+                color: inherit;
+                border-radius: inherit;
+                width: 100%;
+                height: 100%;
+            }
+
+            // All buttons
+            &>button,
+            &>div {
+                @extend .lxms_button;
+            }
+        }
+
     }
 }
