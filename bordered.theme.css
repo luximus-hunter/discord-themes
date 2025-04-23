@@ -1,0 +1,12 @@
+/**
+ * @name Bordered
+ * @author Luximus
+ * @version 1.0.0
+ * @description Adds borders to the Discord UI in places that make sense.
+ */
+.visual-refresh div[class*=base_] div[class*=sidebarList_] > * {
+  border-right: 1px solid var(--border-subtle);
+}
+.visual-refresh div[class*=base_] div[class*=content_] > div[class*=outer_] {
+  border-left: 1px solid var(--border-subtle);
+}
